@@ -138,6 +138,7 @@ main {
   position: relative;
 }
 
+/* Checkout card  */
 .cart-top {
   padding-block: 2rem;
   border-bottom: 1px solid var(--Grayish-blue);
@@ -165,6 +166,38 @@ main {
   margin-bottom: 2rem;
 }
 
+/* image container  */
+
+.image-container {
+  position: relative;
+}
+
+.icon-previous,
+.icon-next {
+  background: white;
+  width: 15px;
+  height: 15px;
+  padding: 1.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+}
+
+.icon-previous {
+  left: 1rem;
+}
+
+.icon-next {
+  right: 1rem;
+}
+
+.icon-previous:hover,
+.icon-next:hover {
+  opacity: 75%;
+}
+
+/* content container  */
 .content-container {
   padding-inline: 2rem;
   margin-inline: auto;
