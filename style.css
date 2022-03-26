@@ -17,6 +17,11 @@ a {
   text-decoration: none;
   font-family: inherit;
   color: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
 }
 
 ul {
@@ -26,6 +31,7 @@ ul {
 button {
   border: none;
   font-family: inherit;
+  cursor: pointer;
 }
 
 :root {
@@ -44,4 +50,118 @@ button {
 
 body {
   font-size: 1.6rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100vh;
+  background: lightblue;
+  color: black;
+  padding: 10rem 3rem;
+  display: none;
+}
+
+.icon-close {
+  position: absolute;
+  top: 20px;
+}
+
+ul.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: inline-block;
+}
+
+header .image-avatar {
+  width: 30px;
+}
+
+.icon-menu,
+.icon-cart {
+  margin-right: 2rem;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+/* Desktop  */
+@media screen and (min-width: 900px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 10%;
+    border-bottom: 1px solid var(--Grayish-blue);
+    gap: 3rem;
+    padding: unset;
+  }
+
+  .logo {
+    margin-right: unset;
+  }
+
+  nav {
+    margin-right: auto;
+    display: block;
+    position: unset;
+    padding: unset;
+    width: unset;
+    height: unset;
+    background: unset;
+  }
+
+  .icon-close {
+    display: none;
+  }
+
+  ul.nav-links {
+    flex-direction: row;
+    gap: unset;
+  }
+
+  .image-avatar,
+  .image-cart {
+    float: right;
+  }
+
+  header .image-avatar {
+    width: 50px;
+  }
+
+  .icon-menu {
+    display: none;
+  }
+
+  .nav-links a {
+    padding-block: 4rem;
+    padding-inline: 2rem;
+    color: var(--Dark-grayish-blue);
+  }
+
+  .nav-links a:hover {
+    border-bottom: 3px solid blue;
+  }
+
+  .icon-cart {
+    margin-right: unset;
+  }
 }
