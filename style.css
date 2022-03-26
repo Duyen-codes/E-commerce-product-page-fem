@@ -301,7 +301,7 @@ main {
   }
 
   .nav-links a:hover {
-    border-bottom: 3px solid blue;
+    border-bottom: 3px solid var(--Orange);
   }
 
   .icon-cart {
