@@ -65,15 +65,17 @@ nav {
   left: 0;
   width: 60%;
   height: 100vh;
-  background: white;
+  background: lightblue;
   color: black;
   padding: 10rem 2rem;
   transform: translateX(-100%);
+  visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
 
 .open {
   transform: translateX(0);
+  visibility: visible;
 }
 
 .icon-close {
@@ -113,6 +115,15 @@ header .image-avatar {
   margin-right: auto;
 }
 
+/* Main  */
+
+main {
+  padding-inline: 2rem;
+}
+
+.heading {
+  font-size: clamp(2rem, 10vw, 3rem);
+}
 /* Desktop  */
 @media screen and (min-width: 900px) {
   header {
@@ -137,6 +148,8 @@ header .image-avatar {
     width: unset;
     height: unset;
     background: unset;
+    transform: unset;
+    visibility: visible;
   }
 
   .icon-close {
