@@ -71,6 +71,21 @@ nav {
   transform: translateX(-100%);
   visibility: hidden;
   transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.checkout-card {
+  border-radius: 1rem;
+  background: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 1rem;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: all 0.2s ease-in;
+  z-index: 1;
 }
 
 .open {
@@ -120,17 +135,6 @@ header .image-avatar {
 /* Main  */
 main {
   position: relative;
-}
-
-.checkout-card {
-  border-radius: 1rem;
-  background: white;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: 1rem;
-  display: none;
 }
 
 .cart-top {
