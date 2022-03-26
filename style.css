@@ -117,13 +117,51 @@ header .image-avatar {
 
 /* Main  */
 
-main {
+.container {
   padding-inline: 2rem;
+  margin-inline: auto;
 }
 
 .heading {
   font-size: clamp(2rem, 10vw, 3rem);
 }
+
+.company-name {
+  color: var(--Orange);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.product-description {
+  color: var(--Dark-grayish-blue);
+  margin-block: 3rem;
+}
+
+.quantity-control,
+.add-to-cart-btn {
+  padding-block: 2rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.add-to-cart-btn {
+  background: var(--Orange);
+  color: white;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.quantity-control {
+  justify-content: space-around;
+  background: var(--Light-grayish-blue);
+  margin-bottom: 2rem;
+}
+
 /* Desktop  */
 @media screen and (min-width: 900px) {
   header {
