@@ -65,15 +65,22 @@ nav {
   left: 0;
   width: 60%;
   height: 100vh;
-  background: lightblue;
+  background: white;
   color: black;
-  padding: 10rem 3rem;
-  display: none;
+  padding: 10rem 2rem;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.open {
+  transform: translateX(0);
 }
 
 .icon-close {
   position: absolute;
-  top: 20px;
+  top: 30px;
+  cursor: pointer;
+  font-size: 30px;
 }
 
 ul.nav-links {
@@ -88,6 +95,8 @@ nav li {
 
 nav a {
   display: inline-block;
+  color: var(--Very-dark-blue);
+  font-weight: 700;
 }
 
 header .image-avatar {
@@ -97,6 +106,7 @@ header .image-avatar {
 .icon-menu,
 .icon-cart {
   margin-right: 2rem;
+  cursor: pointer;
 }
 
 .logo {
