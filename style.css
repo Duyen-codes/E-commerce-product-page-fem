@@ -206,6 +206,10 @@ main {
   opacity: 75%;
 }
 
+.thumbnail-container {
+  display: none;
+}
+
 /* content container  */
 .content-container {
   padding-inline: 2rem;
@@ -379,11 +383,32 @@ main {
     flex-basis: 50%;
   }
 
-  .image-container {
-    flex-basis: 50%;
+  .slider {
     border-radius: 1rem;
   }
 
+  .outer-container {
+    flex-basis: 50%;
+    border-radius: 1rem;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 2rem;
+  }
+
+  .thumbnail-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .thumbnail-container > * {
+    width: 80px;
+    height: 80px;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
   /* Hide icon next, icon previous  */
   .icon-next,
   .icon-previous {

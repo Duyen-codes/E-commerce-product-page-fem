@@ -67,3 +67,12 @@ iconNext.addEventListener("click", nextSlide);
 iconPrevious.addEventListener("click", prevSlide);
 
 // currentSlide = 1: -100%, 0%, 100%, 200%
+
+// Slide images on pressing arrow keys on keyboard
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowLeft") {
+    prevSlide();
+  }
+
+  e.key === "ArrowRight" && nextSlide();
+});
