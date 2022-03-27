@@ -409,6 +409,16 @@ main {
     border-radius: 1rem;
     cursor: pointer;
   }
+
+  .thumbnail-container img:hover {
+    opacity: 75%;
+  }
+
+  .thumbnail-img-active {
+    border: 2px solid var(--Orange);
+    opacity: 75%;
+  }
+
   /* Hide icon next, icon previous  */
   .icon-next,
   .icon-previous {

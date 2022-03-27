@@ -33,6 +33,16 @@ const slider = document.querySelector(".slider");
 //   slide.style.transform = `translateX(${100 * index}%)`;
 // });
 
+const activateThumbnailImg = function (slide) {
+  document
+    .querySelectorAll(".thumbnail-img")
+    .forEach((img) => img.classList.remove("thumbnail-img-active"));
+
+  document
+    .querySelector(`.thumbnail-img[data-slide="${slide}"]`)
+    .classList.add("thumbnail-img-active");
+};
+
 let currentSlide = 0;
 let maxSlide = slides.length - 1;
 
@@ -52,6 +62,7 @@ const nextSlide = function () {
     currentSlide++;
   }
   goToSlide(currentSlide);
+  activateThumbnailImg(currentSlide);
 };
 
 const prevSlide = function () {
@@ -61,6 +72,7 @@ const prevSlide = function () {
     currentSlide--;
   }
   goToSlide(currentSlide);
+  activateThumbnailImg(currentSlide);
 };
 
 iconNext.addEventListener("click", nextSlide);
@@ -75,4 +87,16 @@ document.addEventListener("keydown", function (e) {
   }
 
   e.key === "ArrowRight" && nextSlide();
+});
+
+const thumbnalContainer = document.querySelector(".thumbnail-container");
+
+thumbnalContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("thumbnail-img")) {
+    // const slide = e.target.dataset.slide;
+    // destructuring
+    const { slide } = e.target.dataset;
+    goToSlide(slide);
+    activateThumbnailImg(slide);
+  }
 });
