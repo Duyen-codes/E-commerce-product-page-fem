@@ -291,7 +291,7 @@ main {
 
 .add-to-cart-btn:hover {
   background: rgba(255, 125, 26, 0.7);
-  box-shadow: 0 3px 10px 0 rgba(255, 125, 26, 0.5);
+  box-shadow: 0 5px 30px 0 rgba(255, 125, 26, 0.5);
 }
 
 .quantity-control {

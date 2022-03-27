@@ -100,3 +100,25 @@ thumbnailContainer.addEventListener("click", function (e) {
     activateThumbnailImg(slide);
   }
 });
+
+// purchase function
+
+const iconPlus = document.querySelector(".icon-plus");
+const iconMinus = document.querySelector(".icon-minus");
+const quantity = document.querySelector(".quantity");
+
+let counter = 0;
+function decrement() {
+  console.log("clicked");
+  if (counter <= 0) return;
+  counter--;
+  quantity.textContent = counter;
+}
+
+function increment() {
+  counter++;
+  quantity.textContent = counter;
+}
+
+iconMinus.addEventListener("click", decrement);
+iconPlus.addEventListener("click", increment);
