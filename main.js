@@ -110,24 +110,34 @@ function decrement() {
   if (counter <= 0) return;
   counter--;
   quantity.textContent = counter;
-  toolTipText.textContent = counter;
 }
 
 function increment() {
   counter++;
   quantity.textContent = counter;
-  toolTipText.textContent = counter;
 }
 
 function addToCart() {
   console.log("add to cart");
+  toolTipText.textContent = counter;
+  toolTipText.style.display = "block";
 }
 
 // Toggle checkout card
 const cartContent = document.querySelector(".cart-content");
 
+window.addEventListener("load", function () {
+  if (toolTipText.textContent == "0") {
+    toolTipText.style.display = "none";
+  }
+});
+
 iconCart.addEventListener("click", () => {
-  checkoutCard.classList.toggle("open");
+  if (checkoutCard.classList.contains("open")) {
+    checkoutCard.classList.remove("open");
+  } else {
+    checkoutCard.classList.add("open");
+  }
   if (toolTipText.textContent == "0") {
     cartContent.textContent = "Your cart is empty";
     cartContent.style.textAlign = "center";
@@ -136,6 +146,7 @@ iconCart.addEventListener("click", () => {
   }
 });
 
+// Render checkout
 function renderCheckout() {
   cartContent.innerHTML = "";
   cartContent.innerHTML += `
@@ -145,7 +156,6 @@ function renderCheckout() {
     src="./images/image-product-1-thumbnail.jpg"
     alt=""
   />
-
   <div>
     <div>Autumn Limited Edition...</div>
     <span>$125.00</span> x <span class="quantity">${counter} </span>
@@ -157,8 +167,17 @@ function renderCheckout() {
 <button class="checkout-btn">Checkout</button>
 `;
   checkoutCard.appendChild(cartContent);
+  const iconDelete = document.querySelector(".icon-delete");
+  iconDelete.addEventListener("click", deleteItem);
 }
 
 iconMinus.addEventListener("click", decrement);
 iconPlus.addEventListener("click", increment);
 addToCartButton.addEventListener("click", addToCart);
+
+// Delete cart item
+function deleteItem() {
+  cartContent.textContent = "Your cart is empty";
+  cartContent.style.textAlign = "center";
+  toolTipText.style.display = "none";
+}
