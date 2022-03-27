@@ -106,6 +106,7 @@ thumbnailContainer.addEventListener("click", function (e) {
 const iconPlus = document.querySelector(".icon-plus");
 const iconMinus = document.querySelector(".icon-minus");
 const quantity = document.querySelector(".quantity");
+const addToCartButton = document.querySelector(".add-to-cart-btn");
 
 let counter = 0;
 function decrement() {
@@ -120,5 +121,10 @@ function increment() {
   quantity.textContent = counter;
 }
 
+function addToCart() {
+  console.log("add to cart");
+}
+
 iconMinus.addEventListener("click", decrement);
 iconPlus.addEventListener("click", increment);
+addToCartButton.addEventListener("click", addToCart);
