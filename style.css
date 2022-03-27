@@ -188,6 +188,10 @@ main {
   border-radius: 0.5rem;
 }
 
+.icon-delete {
+  cursor: pointer;
+}
+
 .purchase-details {
   display: flex;
   align-items: center;
@@ -294,7 +298,6 @@ main {
 .quantity-control,
 .add-to-cart-btn,
 .checkout-btn {
-  padding-block: 2rem;
   border-radius: 1rem;
   font-weight: 700;
   width: 100%;
@@ -308,6 +311,7 @@ main {
   color: white;
   gap: 2rem;
   justify-content: center;
+  padding-block: 2rem;
 }
 
 .add-to-cart-btn:hover {
@@ -322,8 +326,10 @@ main {
 }
 
 .icon-plus,
-.icon-minus {
+.icon-minus,
+.add-to-cart-btn {
   cursor: pointer;
+  padding-block: 2rem;
 }
 
 /* Modal  */

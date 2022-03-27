@@ -131,8 +131,33 @@ iconCart.addEventListener("click", () => {
   if (toolTipText.textContent == "0") {
     cartContent.textContent = "Your cart is empty";
     cartContent.style.textAlign = "center";
+  } else {
+    renderCheckout();
   }
 });
+
+function renderCheckout() {
+  cartContent.innerHTML = "";
+  cartContent.innerHTML += `
+  <div class="purchase-details">
+  <img
+    class="product-img"
+    src="./images/image-product-1-thumbnail.jpg"
+    alt=""
+  />
+
+  <div>
+    <div>Autumn Limited Edition...</div>
+    <span>$125.00</span> x <span class="quantity">${counter} </span>
+    <span class="total-price">$${counter * 125.0}</span>
+  </div>
+  <img class="icon-delete" src="./images/icon-delete.svg" alt="icon-delete" />
+</div>
+
+<button class="checkout-btn">Checkout</button>
+`;
+  checkoutCard.appendChild(cartContent);
+}
 
 iconMinus.addEventListener("click", decrement);
 iconPlus.addEventListener("click", increment);
