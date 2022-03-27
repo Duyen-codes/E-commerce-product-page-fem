@@ -131,9 +131,14 @@ header .image-avatar {
   border-radius: 50%;
 }
 
+.logo,
+.image-avatar {
+  margin-left: 2rem;
+}
+
 .icon-menu,
 .icon-cart {
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
   cursor: pointer;
 }
 
@@ -319,6 +324,11 @@ main {
 .icon-plus,
 .icon-minus {
   cursor: pointer;
+}
+
+/* Modal  */
+.modal .icon-close {
+  display: none;
 }
 
 /* Desktop  */

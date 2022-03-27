@@ -16,11 +16,6 @@ iconClose.addEventListener("click", () => {
   nav.classList.remove("open");
 });
 
-// Toggle checkout card
-iconCart.addEventListener("click", () => {
-  checkoutCard.classList.toggle("open");
-});
-
 // Slider
 const slides = document.querySelectorAll(".slide");
 
@@ -107,23 +102,37 @@ const iconPlus = document.querySelector(".icon-plus");
 const iconMinus = document.querySelector(".icon-minus");
 const quantity = document.querySelector(".quantity");
 const addToCartButton = document.querySelector(".add-to-cart-btn");
+const toolTipText = document.querySelector(".tooltiptext");
 
 let counter = 0;
+
 function decrement() {
-  console.log("clicked");
   if (counter <= 0) return;
   counter--;
   quantity.textContent = counter;
+  toolTipText.textContent = counter;
 }
 
 function increment() {
   counter++;
   quantity.textContent = counter;
+  toolTipText.textContent = counter;
 }
 
 function addToCart() {
   console.log("add to cart");
 }
+
+// Toggle checkout card
+const cartContent = document.querySelector(".cart-content");
+
+iconCart.addEventListener("click", () => {
+  checkoutCard.classList.toggle("open");
+  if (toolTipText.textContent == "0") {
+    cartContent.textContent = "Your cart is empty";
+    cartContent.style.textAlign = "center";
+  }
+});
 
 iconMinus.addEventListener("click", decrement);
 iconPlus.addEventListener("click", increment);
