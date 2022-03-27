@@ -89,9 +89,9 @@ document.addEventListener("keydown", function (e) {
   e.key === "ArrowRight" && nextSlide();
 });
 
-const thumbnalContainer = document.querySelector(".thumbnail-container");
+const thumbnailContainer = document.querySelector(".thumbnail-container");
 
-thumbnalContainer.addEventListener("click", function (e) {
+thumbnailContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("thumbnail-img")) {
     // const slide = e.target.dataset.slide;
     // destructuring

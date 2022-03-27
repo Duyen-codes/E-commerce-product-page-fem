@@ -87,6 +87,9 @@ nav {
   visibility: hidden;
   transition: all 0.2s ease-in;
   z-index: 1;
+  max-width: 500px;
+  width: 90%;
+  margin-inline: auto;
 }
 
 .open {
@@ -353,6 +356,26 @@ main {
 
   .icon-cart {
     margin-right: unset;
+  }
+  /* Checkout card  */
+
+  .checkout-card {
+    border-radius: 1rem;
+    background: white;
+    position: absolute;
+    top: -5%;
+    left: 55%;
+    border: 1px solid red;
+    margin: 1rem;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: all 0.2s ease-in;
+    z-index: 1;
+  }
+
+  .open {
+    transform: translateX(0);
+    visibility: visible;
   }
 
   /* Main  */
