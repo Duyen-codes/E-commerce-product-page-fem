@@ -6,6 +6,15 @@ const iconClose = document.querySelector(".icon-close");
 const iconCart = document.querySelector(".icon-cart");
 const checkoutCard = document.querySelector(".checkout-card");
 
+const navLinks = document.querySelector(".nav-links").querySelectorAll("a");
+
+// Close nav mobile when a navlink clicks
+navLinks.forEach((navLink) => {
+  navLink.addEventListener("click", function () {
+    nav.classList.remove("open");
+  });
+});
+
 // Toggle mobile nav
 
 iconMenu.addEventListener("click", () => {
