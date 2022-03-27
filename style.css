@@ -166,10 +166,19 @@ main {
   margin-bottom: 2rem;
 }
 
-/* image container  */
+/* Main-wrapper  */
 
-.image-container {
+/* SLIDER */
+
+.slider {
   position: relative;
+  overflow: hidden;
+  height: 372px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
 }
 
 .icon-previous,
@@ -364,5 +373,20 @@ main {
 
   .add-to-cart-btn {
     flex: 2;
+  }
+
+  .content-container {
+    flex-basis: 50%;
+  }
+
+  .image-container {
+    flex-basis: 50%;
+    border-radius: 1rem;
+  }
+
+  /* Hide icon next, icon previous  */
+  .icon-next,
+  .icon-previous {
+    display: none;
   }
 }
