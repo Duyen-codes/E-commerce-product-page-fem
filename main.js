@@ -26,7 +26,7 @@ iconClose.addEventListener("click", () => {
 });
 
 // Slider
-const slides = document.querySelectorAll(".slide");
+const slides = document.querySelectorAll(".outer-container .slide");
 
 const iconNext = document.querySelector(".icon-next");
 const iconPrevious = document.querySelector(".icon-previous");
@@ -189,4 +189,64 @@ function deleteItem() {
   cartContent.textContent = "Your cart is empty";
   cartContent.style.textAlign = "center";
   toolTipText.style.display = "none";
+}
+
+// image modal lightbox
+
+let modalSlideIndex = 0;
+
+// click listener for the images in the slider to open the modal and show the image according to its index
+console.log(slides);
+slides.forEach((slide, index) => {
+  slide.addEventListener("click", () => {
+    modalSlideIndex = index;
+    openLightbox();
+    showModalSlide(modalSlideIndex);
+  });
+});
+
+// click listener for modal img thumnail to display the image in the main container
+document.querySelectorAll(".modal .thumbnail-img").forEach((img, index) => {
+  img.addEventListener("click", () => {
+    toModalSlide(index);
+  });
+});
+
+// event listeners for close, next, previous buttons
+document
+  .querySelector(".modal .icon-close")
+  .addEventListener("click", closeLightbox);
+document
+  .querySelector(".modal .icon-next")
+  .addEventListener("click", () => changeModalSlide(1));
+document
+  .querySelector(".modal .icon-previous")
+  .addEventListener("click", () => changeModalSlide(-1));
+
+function openLightbox() {
+  document.querySelector(".modal").style.display = "block";
+}
+
+function closeLightbox() {
+  document.querySelector(".modal").style.display = "none";
+}
+
+function changeModalSlide(n) {
+  showModalSlide((modalSlideIndex += n));
+}
+
+function toModalSlide(n) {
+  showModalSlide((modalSlideIndex = n));
+}
+
+function showModalSlide(n) {
+  const modalSlides = document.querySelectorAll(".modal img.slide");
+  if (n == modalSlides.length) {
+    modalSlideIndex = 0;
+  }
+  if (n < 0) {
+    modalSlideIndex = modalSlides.length;
+  }
+  modalSlides.forEach((slide) => (slide.style.display = "none"));
+  modalSlides[modalSlideIndex].style.display = "block";
 }
