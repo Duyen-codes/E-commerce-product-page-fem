@@ -498,7 +498,7 @@ main {
     background: rgba(0, 0, 0, 0.6);
     z-index: 3;
     padding: 5rem;
-    /* hide overlay modal for now  */
+    /* hide overlay modal by default  */
     display: none;
   }
 
@@ -518,12 +518,12 @@ main {
   .modal-content {
     position: relative;
     width: 50%;
-    max-width: 1200px;
+    max-width: 500px;
     margin-inline: auto;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    min-height: 50vh;
   }
 
   .modal-content .icon-previous,
