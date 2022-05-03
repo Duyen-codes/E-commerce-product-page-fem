@@ -1,11 +1,9 @@
 // Queries
-
 const iconMenu = document.querySelector(".icon-menu");
 const nav = document.querySelector("nav");
 const iconClose = document.querySelector(".icon-close");
 const iconCart = document.querySelector(".icon-cart");
 const checkoutCard = document.querySelector(".checkout-card");
-
 const navLinks = document.querySelector(".nav-links").querySelectorAll("a");
 
 // Close nav mobile when a navlink clicks
@@ -27,10 +25,8 @@ iconClose.addEventListener("click", () => {
 
 // Slider
 const slides = document.querySelectorAll(".outer-container .slide");
-
 const iconNext = document.querySelector(".icon-next");
 const iconPrevious = document.querySelector(".icon-previous");
-
 const slider = document.querySelector(".slider");
 
 // slides.forEach((slide, index) => {
@@ -196,7 +192,6 @@ function deleteItem() {
 let modalSlideIndex = 0;
 
 // click listener for the images in the slider to open the modal and show the image according to its index
-console.log(slides);
 slides.forEach((slide, index) => {
   slide.addEventListener("click", () => {
     modalSlideIndex = index;
@@ -245,7 +240,7 @@ function showModalSlide(n) {
     modalSlideIndex = 0;
   }
   if (n < 0) {
-    modalSlideIndex = modalSlides.length;
+    modalSlideIndex = modalSlides.length - 1;
   }
   modalSlides.forEach((slide) => (slide.style.display = "none"));
   modalSlides[modalSlideIndex].style.display = "block";
