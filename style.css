@@ -127,7 +127,7 @@ header .image-avatar {
 }
 
 header .image-avatar {
-  border: 2px solid;
+  border: 2px solid white;
 }
 
 .image-avatar:hover {
@@ -396,6 +396,10 @@ main {
     padding-block: 4rem;
     padding-inline: 2rem;
     color: var(--Dark-grayish-blue);
+  }
+
+  .nav-links a {
+    border-bottom: 3px solid transparent;
   }
 
   .nav-links a:hover {
