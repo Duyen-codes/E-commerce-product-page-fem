@@ -126,6 +126,10 @@ header .image-avatar {
   cursor: pointer;
 }
 
+header .image-avatar {
+  border: 2px solid;
+}
+
 .image-avatar:hover {
   border: 2px solid var(--Orange);
   border-radius: 50%;
