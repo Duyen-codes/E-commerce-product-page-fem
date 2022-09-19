@@ -126,6 +126,10 @@ header .image-avatar {
   cursor: pointer;
 }
 
+header .image-avatar {
+  border: 2px solid white;
+}
+
 .image-avatar:hover {
   border: 2px solid var(--Orange);
   border-radius: 50%;
@@ -392,6 +396,10 @@ main {
     padding-block: 4rem;
     padding-inline: 2rem;
     color: var(--Dark-grayish-blue);
+  }
+
+  .nav-links a {
+    border-bottom: 3px solid transparent;
   }
 
   .nav-links a:hover {
