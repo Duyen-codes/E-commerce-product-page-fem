@@ -1,9 +1,9 @@
 # Frontend Mentor - E-commerce product page
 
 ![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
+[Live Preview](https://ecommerce-product-page-main-woad.vercel.app/)
 
 ## Welcome! 👋
-
 
 ## The challenge
 
