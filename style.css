@@ -8,6 +8,18 @@
   box-sizing: inherit;
 }
 
+:root {
+  /* primary */
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+  /* neutral  */
+  --dark-blue: hsl(220, 13%, 13%);
+  --gray: hsl(219, 9%, 45%);
+  --light-gray: hsl(220, 14%, 75%);
+  --light: hsl(223, 64%, 98%);
+  --lightbox-bg: hsla(0, 0%, 0%, 0.75);
+}
+
 html {
   font-family: "Kumbh Sans", sans-serif;
   font-size: 62.5%;
@@ -558,3 +570,111 @@ main {
     top: 0;
   }
 }
+
+
+/* ***************** modal **************** */
+
+.modal {
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--lightbox-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+}
+
+.showModal {
+  opacity: 1;
+  z-index: 999;
+}
+
+.modal__big {
+  width: 40vw;
+  position: relative;
+}
+
+.modal-previous,
+.modal-next {
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-previous {
+  left: -16px;
+  background-image: url(images/icon-previous.svg);
+}
+
+.modal-next {
+  right: -16px;
+  background-image: url(images/icon-next.svg);
+
+}
+
+.modal-close {
+  position: absolute;
+  top: -8%;
+  right: 0;
+  width: calc(20rem/16);
+  height: calc(20rem/16);
+  border: none;
+  background-color: transparent;
+  background-image: url(images/icon-close-white.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+  border: 10px solid transparent;
+  box-sizing: content-box;
+}
+
+.modal__big img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.modal__thumbnails {
+  display: flex;
+  justify-content: space-between;
+  width: 28%;
+}
+
+.modal__thumbnails__small {
+  width: 6vw;
+  position: relative;
+}
+
+.modal__thumbnails__small img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.modal__thumbnails__small:hover:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* ************** modal ends ************** */

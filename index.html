@@ -10,7 +10,6 @@
     <header>
       <img class="icon-menu" src="./images/icon-menu.svg" alt="icon-menu" />
       <img class="logo" src="./images/logo.svg" alt="" />
-
       <nav>
         <img
           class="icon-close"
@@ -158,6 +157,28 @@
       </div>
      
     </main>
+    <aside class="modal" id="modal"> <!-- modal starts -->
+      <div class="modal__big">
+        <button aria-label="close" class="modal-close" id="closeModal"></button>
+        <button aria-label="previous" class="modal-previous"></button>
+        <img src="images/image-product-1.jpg" id="bigImgModal" data-index-number="1" alt="sneakers" >
+        <button aria-label="next" class="modal-next"></button>
+      </div>
+      <div class="modal__thumbnails">
+        <picture class="modal__thumbnails__small" >
+          <img src="images/image-product-1-thumbnail.jpg" data-index-number="1" alt="sneakers">
+        </picture>
+        <picture class="modal__thumbnails__small">
+          <img src="images/image-product-2-thumbnail.jpg" data-index-number="2" alt="sneakers">
+        </picture>
+        <picture class="modal__thumbnails__small">
+          <img src="images/image-product-3-thumbnail.jpg" data-index-number="3" alt="sneakers">
+        </picture>
+        <picture class="modal__thumbnails__small">
+          <img src="images/image-product-4-thumbnail.jpg" data-index-number="4" alt="sneakers">
+        </picture>
+      </div>
+  </aside> <!-- modal ends -->
 
     <script src="main.js"></script>
   </body>
