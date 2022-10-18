@@ -14,7 +14,6 @@ navLinks.forEach((navLink) => {
 });
 
 // Toggle mobile nav
-
 iconMenu.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
@@ -46,7 +45,7 @@ const activateThumbnailImg = function (slide) {
 let currentSlide = 0;
 let maxSlide = slides.length - 1;
 
-const goToSlide = function (slide) {
+const goToSlide = (slide) => {
   slides.forEach((sl, index) => {
     sl.style.transform = `translateX(${100 * (index - slide)}%)`;
   });
@@ -65,6 +64,7 @@ const nextSlide = function () {
   activateThumbnailImg(currentSlide);
 };
 
+// Previous slide
 const prevSlide = function () {
   if (currentSlide === 0) {
     currentSlide = maxSlide;
@@ -123,7 +123,6 @@ function increment() {
 }
 
 function addToCart() {
-  console.log("add to cart");
   toolTipText.textContent = counter;
   toolTipText.style.display = "block";
 }

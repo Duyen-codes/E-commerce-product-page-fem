@@ -408,15 +408,25 @@ main {
     padding-block: 4rem;
     padding-inline: 2rem;
     color: var(--Dark-grayish-blue);
+    position: relative;
   }
 
-  .nav-links a {
-    border-bottom: 3px solid transparent;
+  .nav-links a::after {
+    position: absolute;
+    content: '';
+     height: 2px;
+     width: 0%;
+     top: 100%;
+     right: 50%;
+    transform: translateX(50%); 
+    background-color: var(--Orange);
+    transition: all 0.3s ease-in;
   }
 
-  .nav-links a:hover {
-    border-bottom: 3px solid var(--Orange);
+  .nav-links a:hover::after {
+    width: 100%;
   }
+
 
   .icon-cart {
     margin-right: unset;
