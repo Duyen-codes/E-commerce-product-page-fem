@@ -6,6 +6,21 @@ const iconCart = document.querySelector(".icon-cart");
 const checkoutCard = document.querySelector(".checkout-card");
 const navLinks = document.querySelector(".nav-links").querySelectorAll("a");
 
+// changing preview
+const thumbnailImages = document.querySelectorAll(".thumbnail-img");
+const bigImg = document.getElementById("bigImg");
+const next = document.querySelector(".icon-next");
+const previous = document.querySelector(".icon-previous");
+
+//modal
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
+const bigImgModal = document.getElementById("bigImgModal");
+
+const modalNextBtn = document.querySelector(".modal-next");
+const modalPreviousBtn = document.querySelector(".modal-previous");
+const modalThumbnails = document.querySelectorAll(".modal__thumbnails__small");
+
 // Close nav mobile when a navlink clicks
 navLinks.forEach((navLink) => {
   navLink.addEventListener("click", function () {
@@ -20,85 +35,6 @@ iconMenu.addEventListener("click", () => {
 
 iconClose.addEventListener("click", () => {
   nav.classList.remove("open");
-});
-
-// Slider
-const slides = document.querySelectorAll(".outer-container .slide");
-const iconNext = document.querySelector(".icon-next");
-const iconPrevious = document.querySelector(".icon-previous");
-const slider = document.querySelector(".slider");
-
-// slides.forEach((slide, index) => {
-//   slide.style.transform = `translateX(${100 * index}%)`;
-// });
-
-const activateThumbnailImg = function (slide) {
-  document
-    .querySelectorAll(".thumbnail-img")
-    .forEach((img) => img.classList.remove("thumbnail-img-active"));
-
-  document
-    .querySelector(`.thumbnail-img[data-slide="${slide}"]`)
-    .classList.add("thumbnail-img-active");
-};
-
-let currentSlide = 0;
-let maxSlide = slides.length - 1;
-
-const goToSlide = (slide) => {
-  slides.forEach((sl, index) => {
-    sl.style.transform = `translateX(${100 * (index - slide)}%)`;
-  });
-};
-
-goToSlide(0);
-
-// Next slide
-const nextSlide = function () {
-  if (currentSlide === maxSlide) {
-    currentSlide = 0;
-  } else {
-    currentSlide++;
-  }
-  goToSlide(currentSlide);
-  activateThumbnailImg(currentSlide);
-};
-
-// Previous slide
-const prevSlide = function () {
-  if (currentSlide === 0) {
-    currentSlide = maxSlide;
-  } else {
-    currentSlide--;
-  }
-  goToSlide(currentSlide);
-  activateThumbnailImg(currentSlide);
-};
-
-iconNext.addEventListener("click", nextSlide);
-iconPrevious.addEventListener("click", prevSlide);
-
-// currentSlide = 1: -100%, 0%, 100%, 200%
-
-// Slide images on pressing arrow keys on keyboard
-document.addEventListener("keydown", function (e) {
-  if (e.key === "ArrowLeft") {
-    prevSlide();
-  }
-
-  e.key === "ArrowRight" && nextSlide();
-});
-
-const thumbnailContainer = document.querySelector(".thumbnail-container");
-
-thumbnailContainer.addEventListener("click", function (e) {
-  if (e.target.classList.contains("thumbnail-img")) {
-    // const slide = e.target.dataset.slide;
-    // destructuring
-    const { slide } = e.target.dataset;
-    goToSlide(slide);
-    activateThumbnailImg(slide);
-  }
 });
 
 // purchase function
@@ -186,61 +122,112 @@ function deleteItem() {
   toolTipText.style.display = "none";
 }
 
+// MODAL
+// opening and closing modal
+bigImg.addEventListener("click", (e) => {
+  modal.style.display = "flex";
+  bigImgModal.src = e.target.src;
+  slideIndex = bigImgModal.dataset.indexNumber;
+  modalThumbnails.forEach((pic) => {
+    if (
+      pic.querySelector("img").dataset.indexNumber ===
+      bigImgModal.dataset.indexNumber
+    ) {
+      pic.classList.add("selected");
+    } else {
+      pic.classList.remove("selected");
+    }
+  });
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target.id === "modal") {
+    modal.style.display = "none";
+  }
+});
+
+closeModal.addEventListener("click", (e) => {
+  modal.style.display = "none";
+});
+
+// CHANGING PREVIEW
+
+// on big screen
+thumbnailImages.forEach((pic) => {
+  pic.addEventListener("click", (e) => {
+    bigImg.src = `images/image-product-${
+      e.target.querySelector("img").dataset.slide
+    }.jpg`;
+    thumbnailImages.forEach((pic) => {
+      pic.classList.remove("selected");
+    });
+    e.target.classList.add("selected");
+  });
+});
+
+// Changing preview on small screen
+let slideIndex = 1;
+
+function nextImage(imageToChange) {
+  slideIndex++;
+  if (slideIndex > thumbnailImages.length) {
+    slideIndex = 1;
+  }
+  imageToChange.src = `images/image-product-${slideIndex}.jpg`;
+  modalThumbnails.forEach((pic) => {
+    if (pic.querySelector("img").dataset.indexNumber == slideIndex) {
+      pic.classList.add("selected");
+    } else {
+      pic.classList.remove("selected");
+    }
+  });
+}
+
+function previousImage(imageToChange) {
+  slideIndex--;
+  if (slideIndex < 1) {
+    slideIndex = thumbnailImages.length;
+  }
+  imageToChange.src = `images/image-product-${slideIndex}.jpg`;
+  modalThumbnails.forEach((pic) => {
+    if (pic.querySelector("img").dataset.indexNumber == slideIndex) {
+      pic.classList.add("selected");
+    } else {
+      pic.classList.remove("selected");
+    }
+  });
+}
+
+next.addEventListener("click", () => {
+  nextImage(bigImg);
+});
+
+previous.addEventListener("click", () => {
+  previousImage(bigImg);
+});
+
 // image modal lightbox
 
-let modalSlideIndex = 0;
-
-// click listener for the images in the slider to open the modal and show the image according to its index
-slides.forEach((slide, index) => {
-  slide.addEventListener("click", () => {
-    modalSlideIndex = index;
-    openLightbox();
-    showModalSlide(modalSlideIndex);
+// switching picture by clicking thumbnails
+modalThumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener("click", (e) => {
+    bigImgModal.src = `images/image-product-${
+      e.target.querySelector("img").dataset.indexNumber
+    }.jpg`;
+    slideIndex = e.target.querySelector("img").dataset.indexNumber;
+    modalThumbnails.forEach((pic) => {
+      pic.classList.remove("selected");
+    });
+    thumbnail.classList.add("selected");
   });
 });
 
-// click listener for modal img thumnail to display the image in the main container
-document.querySelectorAll(".modal .thumbnail-img").forEach((img, index) => {
-  img.addEventListener("click", () => {
-    toModalSlide(index);
-  });
+// switching the modal picture by next, previous buttons
+
+modalNextBtn.addEventListener("click", () => {
+  nextImage(bigImgModal);
 });
 
-// event listeners for close, next, previous buttons
-document
-  .querySelector(".modal .icon-close")
-  .addEventListener("click", closeLightbox);
-document
-  .querySelector(".modal .icon-next")
-  .addEventListener("click", () => changeModalSlide(1));
-document
-  .querySelector(".modal .icon-previous")
-  .addEventListener("click", () => changeModalSlide(-1));
-
-function openLightbox() {
-  document.querySelector(".modal").style.display = "block";
-}
-
-function closeLightbox() {
-  document.querySelector(".modal").style.display = "none";
-}
-
-function changeModalSlide(n) {
-  showModalSlide((modalSlideIndex += n));
-}
-
-function toModalSlide(n) {
-  showModalSlide((modalSlideIndex = n));
-}
-
-function showModalSlide(n) {
-  const modalSlides = document.querySelectorAll(".modal img.slide");
-  if (n == modalSlides.length) {
-    modalSlideIndex = 0;
-  }
-  if (n < 0) {
-    modalSlideIndex = modalSlides.length - 1;
-  }
-  modalSlides.forEach((slide) => (slide.style.display = "none"));
-  modalSlides[modalSlideIndex].style.display = "block";
-}
+modalPreviousBtn.addEventListener("click", () => {
+  previousImage(bigImgModal);
+});

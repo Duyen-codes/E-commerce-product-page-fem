@@ -66,61 +66,45 @@
         <div class="outer-container">
           <div class="image-container slider">
             <img
-              class="slide slide-1"
+              class="slide slide-1 bigImg" id="bigImg"
               src="./images/image-product-1.jpg"
               alt="image-product-1"
             />
-            <img
-              class="slide slide-2"
-              src="./images/image-product-2.jpg"
-              alt="image-product-2"
-            />
-            <img
-              class="slide slide-3"
-              src="./images/image-product-3.jpg"
-              alt="image-product-3"
-            />
-            <img
-              class="slide slide-4"
-              src="./images/image-product-4.jpg"
-              alt="image-product-4"
-            />
-            <img
-              class="icon-previous"
-              src="./images/icon-previous.svg"
-              alt="icon-previous"
-            />
-            <img
-              class="icon-next"
-              src="./images/icon-next.svg"
-              alt="icon-next"
-            />
+            
+        
+            <button aria-label="next" class="icon-previous"></button>
+            <button aria-label="next" class="icon-next"></button>
+         
           </div>
           <div class="thumbnail-container">
+            <picture class="thumbnail-img selected">
+              <img    
+              data-slide="1" src="images/image-product-1-thumbnail.jpg" alt="sneakers">
+            </picture>
+            <picture class="thumbnail-img">
             <img
-              class="thumbnail-img thumbnail-img-active"
-              data-slide="0"
-              src="./images/image-product-1-thumbnail.jpg"
-              alt=""
-            />
-            <img
-              class="thumbnail-img"
-              data-slide="1"
+              
+              data-slide="2"
               src="./images/image-product-2-thumbnail.jpg"
               alt=""
             />
+            </picture>
+            <picture    class="thumbnail-img">
             <img
-              class="thumbnail-img"
-              data-slide="2"
+           
+              data-slide="3"
               src="./images/image-product-3-thumbnail.jpg"
               alt=""
             />
+          </picture>
+          <picture  class="thumbnail-img">
             <img
-              class="thumbnail-img"
-              data-slide="3"
+             
+              data-slide="4"
               src="./images/image-product-4-thumbnail.jpg"
               alt=""
             />
+          </picture>
           </div>
         </div>
 
@@ -155,13 +139,13 @@
       </div>
         </div>
       </div>
-     
     </main>
-    <aside class="modal" id="modal"> <!-- modal starts -->
-      <div class="modal__big">
+
+    <div class="modal" id="modal"> <!-- modal starts -->
+      <div class="modal__content">
         <button aria-label="close" class="modal-close" id="closeModal"></button>
         <button aria-label="previous" class="modal-previous"></button>
-        <img src="images/image-product-1.jpg" id="bigImgModal" data-index-number="1" alt="sneakers" >
+        <img src="images/image-product-1.jpg" id="bigImgModal" class="isplayed-img" data-index-number="1" alt="sneakers" >
         <button aria-label="next" class="modal-next"></button>
       </div>
       <div class="modal__thumbnails">
@@ -178,7 +162,7 @@
           <img src="images/image-product-4-thumbnail.jpg" data-index-number="4" alt="sneakers">
         </picture>
       </div>
-  </aside> <!-- modal ends -->
+  </div> <!-- modal ends -->
 
     <script src="main.js"></script>
   </body>

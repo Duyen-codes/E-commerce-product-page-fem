@@ -9,15 +9,14 @@
 }
 
 :root {
-  /* primary */
-  --orange: hsl(26, 100%, 55%);
+
   --pale-orange: hsl(25, 100%, 94%);
   /* neutral  */
   --dark-blue: hsl(220, 13%, 13%);
   --gray: hsl(219, 9%, 45%);
   --light-gray: hsl(220, 14%, 75%);
   --light: hsl(223, 64%, 98%);
-  --lightbox-bg: hsla(0, 0%, 0%, 0.75);
+
 }
 
 html {
@@ -58,7 +57,8 @@ button {
   --Grayish-blue: hsl(220, 14%, 75%);
   --Light-grayish-blue: hsl(223, 64%, 98%);
   --White: hsl(0, 0%, 100%);
-  /* --Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%); */
+  --lightbox-bg: hsla(0, 0%, 0%, 0.75);
+
 }
 
 body {
@@ -243,6 +243,18 @@ main {
   cursor: pointer;
 }
 
+.icon-next {
+  background-image: url('images/icon-next.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-previous {
+  background-image: url('images/icon-previous.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .icon-previous {
   left: 1rem;
 }
@@ -350,9 +362,13 @@ main {
 }
 
 /* Modal  */
-.modal .icon-close {
-  display: none;
+
+@media screen and (max-width: 900px) {
+  .modal {
+    display: none !important;
+  }
 }
+
 
 /* Desktop  */
 @media screen and (min-width: 900px) {
@@ -414,7 +430,7 @@ main {
   .nav-links a::after {
     position: absolute;
     content: '';
-     height: 2px;
+     height: 3px;
      width: 0%;
      top: 100%;
      right: 50%;
@@ -507,10 +523,25 @@ main {
     opacity: 75%;
   }
 
-  .thumbnail-img-active {
-    border: 2px solid var(--Orange);
-    opacity: 75%;
+  .thumbnail-img {
+    position: relative;
   }
+
+  .thumbnail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+  .thumbnail-img:hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    border-radius: 15px;
+}
 
   /* Hide icon next, icon previous  */
   .icon-next,
@@ -518,26 +549,22 @@ main {
     display: none;
   }
 
-  /* Modal  */
+  /* ***************** modal **************** */
   .modal {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 3;
-    padding: 5rem;
+    background:var(--lightbox-bg);
+    z-index: 1;
     /* hide overlay modal by default  */
     display: none;
-  }
-
-  .modal .icon-close {
-    display: unset;
-    background-color: white;
-    position: fixed;
-    top: 30px;
-    right: 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  gap: 3%;
   }
 
   .modal .slider {
@@ -545,7 +572,7 @@ main {
   }
 
   /* Modal Content  */
-  .modal-content {
+  .modal__content {
     position: relative;
     width: 50%;
     max-width: 500px;
@@ -556,18 +583,6 @@ main {
     min-height: 50vh;
   }
 
-  .modal-content .icon-previous,
-  .modal-content .icon-next {
-    background: white;
-    width: 15px;
-    height: 15px;
-    padding: 1.5rem;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-    display: unset;
-  }
 
   .modal .slider {
     position: relative;
@@ -581,28 +596,6 @@ main {
   }
 }
 
-
-/* ***************** modal **************** */
-
-.modal {
-  opacity: 0;
-  z-index: -999;
-  position: absolute;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--lightbox-bg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3%;
-}
-
-.showModal {
-  opacity: 1;
-  z-index: 999;
-}
 
 .modal__big {
   width: 40vw;
@@ -634,24 +627,21 @@ main {
 .modal-next {
   right: -16px;
   background-image: url(images/icon-next.svg);
-
 }
 
 .modal-close {
   position: absolute;
   top: -8%;
   right: 0;
-  width: calc(20rem/16);
-  height: calc(20rem/16);
+  width: calc(25rem/16);
+  height: calc(25rem/16);
   border: none;
   background-color: transparent;
-  background-image: url(images/icon-close-white.svg);
+  background-image: url(images/icon-close.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  cursor: pointer;
-  border: 10px solid transparent;
-  box-sizing: content-box;
+  cursor: pointer
 }
 
 .modal__big img {
@@ -687,4 +677,16 @@ main {
   cursor: pointer;
 }
 
+
+.selected::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--Orange);
+  border-radius: 15px;
+  box-sizing: border-box;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
+}
 /* ************** modal ends ************** */
