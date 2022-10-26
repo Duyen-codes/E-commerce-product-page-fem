@@ -125,14 +125,20 @@ function deleteItem() {
 // MODAL
 // opening and closing modal
 bigImg.addEventListener("click", (e) => {
+  //do not show modal on mobile
+  if (window.screen.width < 900) {
+    return;
+  }
   modal.style.display = "flex";
   bigImgModal.src = e.target.src;
-  slideIndex = bigImgModal.dataset.indexNumber;
+  // this was setting the slideIndex always to 1
+  // slideIndex = bigImgModal.dataset.indexNumber;
+
+  let slideIndex =
+    document.querySelector(".selected").firstElementChild.dataset.slide;
+  console.log("slideIndex", slideIndex);
   modalThumbnails.forEach((pic) => {
-    if (
-      pic.querySelector("img").dataset.indexNumber ===
-      bigImgModal.dataset.indexNumber
-    ) {
+    if (pic.querySelector("img").dataset.indexNumber === slideIndex) {
       pic.classList.add("selected");
     } else {
       pic.classList.remove("selected");

@@ -436,7 +436,7 @@ main {
      right: 50%;
     transform: translateX(50%); 
     background-color: var(--Orange);
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in-out;
   }
 
   .nav-links a:hover::after {
