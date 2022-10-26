@@ -1,5 +1,5 @@
 # Frontend Mentor - E-commerce product page
-Live Demo: [https://ecommerce-product-page-main-duyen-codes.vercel.app](https://ecommerce-product-page-main-duyen-codes.vercel.app)
+Live Demo: [https://e-commerce-product-page-fem.vercel.app](https://e-commerce-product-page-fem.vercel.app)
 
 ![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
 
