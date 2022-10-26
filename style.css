@@ -9,14 +9,14 @@
 }
 
 :root {
-
+ --Orange: rgb(255, 125, 26);
   --pale-orange: hsl(25, 100%, 94%);
   /* neutral  */
   --dark-blue: hsl(220, 13%, 13%);
   --gray: hsl(219, 9%, 45%);
   --light-gray: hsl(220, 14%, 75%);
   --light: hsl(223, 64%, 98%);
-
+  --lightbox-bg: hsla(0, 0%, 0%, 0.75);
 }
 
 html {
@@ -46,20 +46,6 @@ button {
   cursor: pointer;
 }
 
-:root {
-  --Orange: rgb(255, 125, 26);
-  --Pale-orange: hsl(25, 100%, 94%);
-
-  /* ### Neutral */
-
-  --Very-dark-blue: hsl(220, 13%, 13%);
-  --Dark-grayish-blue: hsl(219, 9%, 45%);
-  --Grayish-blue: hsl(220, 14%, 75%);
-  --Light-grayish-blue: hsl(223, 64%, 98%);
-  --White: hsl(0, 0%, 100%);
-  --lightbox-bg: hsla(0, 0%, 0%, 0.75);
-
-}
 
 body {
   font-size: 1.6rem;
@@ -136,9 +122,6 @@ nav a {
 header .image-avatar {
   width: 30px;
   cursor: pointer;
-}
-
-header .image-avatar {
   border: 2px solid white;
 }
 
@@ -247,20 +230,14 @@ main {
   background-image: url('images/icon-next.svg');
   background-repeat: no-repeat;
   background-position: center;
+  right: 1rem;
 }
 
 .icon-previous {
   background-image: url('images/icon-previous.svg');
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.icon-previous {
   left: 1rem;
-}
-
-.icon-next {
-  right: 1rem;
 }
 
 .icon-previous:hover,
@@ -567,10 +544,6 @@ main {
   gap: 3%;
   }
 
-  .modal .slider {
-    border: 1px solid white;
-  }
-
   /* Modal Content  */
   .modal__content {
     position: relative;
@@ -588,6 +561,7 @@ main {
     position: relative;
     overflow: hidden;
     height: 372px;
+    border: 1px solid white;
   }
 
   .modal .slide {

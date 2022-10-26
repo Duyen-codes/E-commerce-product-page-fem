@@ -1,5 +1,7 @@
 # Frontend Mentor - E-commerce product page
-Live Demo: [https://e-commerce-product-page-fem.vercel.app](https://e-commerce-product-page-fem.vercel.app)
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=Duyen-codes_E-commerce-product-page-fem)
+
+- Live Demo: [https://e-commerce-product-page-fem.vercel.app](https://e-commerce-product-page-fem.vercel.app)
 
 ![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
 
